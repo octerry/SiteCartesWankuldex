@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+
+body{
+    background: rgb(54,57,63)
+}
+
+h1,h2,h3{
+    color: rgb(255, 255, 255);
+    font-family: Gowun Dodum;
+}
+
+
+#top_bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+.amburger_menu{
+    margin-top: 0;
+    height: 30px;
+    width: auto;
+}
+
+#top_bar h3{
+    font-family: Bungee Shade;
+    font-size: 20px;
+}
+
+#top_bar img{
+    margin-top: 0;
+    height: 30px;
+    width: auto;
+    border-radius: 100%;
+}
+
+#title_div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#title_div img{
+    margin-top: 80px;
+    height: auto;
+    width: 80vw;
+}
+
+#title_div h2{
+    margin-top: -1vw;
+    font-size:4.8vw;
+    font-family: Gowun Dodum
+}
