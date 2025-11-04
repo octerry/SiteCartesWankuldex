@@ -47,6 +47,7 @@ h1,h2,h3{
 /* Logo et titre sur la page principale*/
 #title_div{
     display: flex;
+    posi
     flex-direction: column;
     align-items: center;
     text-align: center;
