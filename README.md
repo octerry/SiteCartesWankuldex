@@ -1,3 +1,3 @@
 # SiteCartesWankuldex
 
-Pour l'instant c'est vide mais ne vous inquietez pas ce sera assez galère pour que je le remplisse assez vite
+A noter : le caroussel de booster est simplifié pour pouvoir facilement revenir en arrière et le refaire en JavaScript quand j'aurais les compétences
