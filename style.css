@@ -3,11 +3,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bayon&family=Bowlby+One+SC&family=Hind:wght@300;400;500;600;700&display=swap'); /* Barlow, Bayon, Hind & Bowlby One SC */
 
 
-/* hide page scrollbar */
-html { scrollbar-width: none; } /* Firefox */
-body { -ms-overflow-style: none; } /* IE and Edge */
-body::-webkit-scrollbar, body::-webkit-scrollbar-button { display: none; } /* Chrome */
-/* end hide page scrollbar */
+/* ↓ TRUC TROUVES SUR INTERNET ↓ */
+
+/* source : https://www.unclebigbay.com/blog/10-custom-scrollbar-samples-for-your-next-project */
+/* On modifie la barre de scroll d'origine parce qu'elle est moche :3 */
+body::-webkit-scrollbar {
+    width: 6px;
+    background-color: #000000;
+}
+body::-webkit-scrollbar-thumb{
+    height: 5px;
+    background-color: #4f5d8a;
+    border-radius: 5px;
+}
+body {
+    overflow-x: hidden;
+}
+
+/* Source : https://iamvdo.me/blog/animer-les-couleurs-d-une-interface */
+@keyframes wheelHueColor {
+    from, to { color: #253766; }
+    25%      { color: #4F6625; }
+    50%      { color: #662B25; }
+    75%      { color: #422566; }
+}
+
+/* ↑ TRUC TROUVES SUR INTERNET ↑ */
 
 *{
     margin: 0;
@@ -19,42 +40,48 @@ body{
     background: linear-gradient(#172647, #382C50);
 }
 
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 h1,h2,h3{
     color: rgb(255, 255, 255);
 }
 
 /* Barre tout en haut de la page principale */
 #top_bar{
+    z-index: 1000;
     display: flex;
     position: fixed;
-    width: 90vw;
+    width: 100%;
     align-items: center;
     justify-content: space-between;
-    margin-top: 4vh;
-    margin-left: 2vw;
-    margin-right: 2vw;
+    padding-top: 5vh;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    padding-bottom: 2vw;
+    backdrop-filter: blur(15px);
+    background-color: #00001040;
 }
 
 .amburger_menu{
     margin-top: 0;
-    height: 30px;
+    height: 4vh;
     width: auto;
-}
-
-#top_bar h3{
-    font-family: "Bungee Shade";
-    font-size: 20px;
 }
 
 #top_bar img{
     margin-top: 0;
-    height: 30px;
+    height: 4vh;
     width: auto;
     border-radius: 100%;
 }
 
 /* Logo et titre sur la page principale*/
 #title_div{
+    z-index: 1000;
     display: flex;
     position: sticky;
     top: -8vh;
@@ -80,6 +107,7 @@ h1,h2,h3{
     opacity: 100%;
 }
 
+
 /* Fenetre des booster sur la page principale */
 #onglet_booster{
     display: flex;
@@ -97,9 +125,11 @@ h1,h2,h3{
     margin-right: 3vw;
     margin-top: 30px;
     align-items: center;
+    align-self: center;
     flex-direction: column;
-    border-radius: 5vw;
+    border-radius: clamp(1vw,6vw,6vh);
     box-shadow: inset 10px 10px 4vw #00000070;
+    max-width: 1000px;
 }
 
 #onglet_booster div{
@@ -108,20 +138,22 @@ h1,h2,h3{
 
 #onglet_booster h1{
     font-family: "Bowlby One SC";
-    font-size: 5vw;
+    font-size: clamp(1vw,4.5vw,5.8vh);
     margin-top: 10px;
 }
 
 #onglet_booster h2{
     font-family: "Bayon";
     font-size: 4vw;
+    font-size: clamp(1vw,3.6vw,4.6vh);
     margin-top: -5%
 }
 
 #onglet_booster img{
     margin-top: -6%;
-    width: 80vw;
+    width: clamp(10vw,80vw,100vh);
     height: auto;
+    filter: drop-shadow(0 0 1vh #00000080);
 }
 
 /* Section referencement des cartes sur la page principale*/
@@ -132,7 +164,6 @@ h1,h2,h3{
     backdrop-filter: blur(4px);
     background-color: #00000080;
     margin-top: 10vw;
-    padding-bottom: 100vh;
     left: -10px;
     border-top-left-radius: 5vh;
     border-top-right-radius: 5vh;
@@ -224,7 +255,24 @@ h1,h2,h3{
     outline: 2px solid #5b9dd9;
 }
 
+#card_displate{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 20px;
+}
 
+#card_displate img{
+    padding: 20px;
+    max-width: 300px;
+    border-radius: 40px;
+}
+
+
+/* Page Booster Opening */
+#booster_body{
+    overflow: hidden;
+}
 
 .booster_opening{
     display: flex;
@@ -234,14 +282,21 @@ h1,h2,h3{
     padding-bottom: 30vh;
 }
 
-/* ↓ A MODIFIER PLUS TARD ↓ */
+/* -----------↓ A MODIFIER PLUS TARD ↓----------- */
 #booster_aleatoire{
-    background: radial-gradient(
-            #394A8F 20%,
-            #34402B,
-            #221515,
-            #1D1522
+    color: #253766;
+    animation: wheelHueColor 10s infinite; /* wheelHueColor défini dans la section tout en haut */
+    background-color: currentColor;
+}
+@supports (background-blend-mode: overlay) {
+    #booster_aleatoire{
+        background-image: radial-gradient(
+            #858585 20%,
+            #505050,
+            #1d1d1d
         );
+        background-blend-mode: overlay;
+    }
 }
 
 #s1{
@@ -275,7 +330,8 @@ h1,h2,h3{
             #1A1520
         );
 }
-/* ↑ A MODIFIER PLUS TARD ↑ */
+/* ------------↑ A MODIFIER PLUS TARD ↑------------- */
+
 .booster_opening h1{
     font-family: "Bowlby One SC";
     font-size: 3.5vh;
@@ -289,6 +345,7 @@ h1,h2,h3{
     background-color: #00000040;
     border-radius: 2vh;
 }
+
 .booster_opening #logo_img{
     height: 8vh;
     width: auto;
@@ -310,15 +367,17 @@ h1,h2,h3{
 }
 
 .booster_opening #selection_booster #left_arrow{
+    align-self: center;
     width: 10vh;
-    height: auto;
+    height: 15vh;
     margin-right: 2vh;
     rotate: 0.25turn;
 }
 
 .booster_opening #selection_booster #right_arrow{
+    align-self: center;
     width: 10vh;
-    height: auto;
+    height: 15vh;
     margin-left: 2vh;
     rotate: -0.25turn;
 }
@@ -332,7 +391,7 @@ h1,h2,h3{
     
     #section_carte #filter #sort_bar{
         margin-top: 10px;
-        margin-left: -10px;
+        margin-left: 0;
     }
     
 }
