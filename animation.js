@@ -1,4 +1,11 @@
-changeWidth
+
+// L'API de Wankul -> https://wankul.fr/apps/proxy/api/wankuldex/cards
+//
+//fetch("https://wankul.fr/apps/proxy/api/wankuldex/cards")
+//   .then(response => console.log(response))
+//    .catch(error => console.error(error))
+//
+// console renvoie : CORS
 
 function changeWidth() {
     var ratio = window.innerWidth / window.innerHeight *10 //Ratio de la fenetre
